@@ -1,6 +1,5 @@
 <?php
-
-require_once 'data.php';
+    require_once '../src/data.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,9 +12,11 @@ require_once 'data.php';
         footer {
             border: 1px dashed black;
         }
+
         .product-list {
             display: flex;
         }
+
         .product-list .product {
             max-width: 30%;
         }
@@ -36,13 +37,11 @@ require_once 'data.php';
         </ul>
     </nav>
 </header>
+
 <main>
-    <img src="product-placeholder.png" alt="<?= $data['name'] ?>" width="300"/>
-    <h1><?= $data['name'] ?></h1>
-    <p><?= $data['description'] ?></p>
-    <span>$<?= $data['price'] ?></span>
-    <button type="button">Add To Cart</button>
+    <?php require_once "../src/pages/$page" ?>
 </main>
+
 <footer>
     <nav>
         <ul>
