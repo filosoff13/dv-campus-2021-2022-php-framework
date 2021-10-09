@@ -123,17 +123,14 @@ function catalogGetPost(): array
     {
         $posts = catalogGetPost();
         usort($posts, "cmp");
-
-
-
-        return array_pop($data);
+        return $posts;
     }
 
-    function cmp($a, $b)
+    function cmp($a, $b): int
     {
-        if ($a == $b) {
+        if ($a["date"] === $b["date"]) {
             return 0;
         }
-        return ($a < $b) ? -1 : 1;
+        return (strtotime($a["date"]) < strtotime($b["date"])) ? -1 : 1;
     }
 }
