@@ -7,7 +7,7 @@
                     <img src="/post-placeholder.png" alt="<?= $post['name'] ?>" width="200"/>
                 </a>
                 <a href="/<?= $post['url'] ?>" title="<?= $post['name'] ?>"><?= $post['name'] ?></a>
-                <span>$<?= number_format($post['price'], 2) ?></span>
+                <span>$<?= $post['date'] ?></span>
                 <button type="button">Add To Blog</button>
             </div>
         <?php endforeach; ?>

@@ -34,42 +34,42 @@ function catalogGetPost(): array
             'name' => 'Post 1',
             'url' => 'Post-1',
             'description' => 'Post 1 Description',
-            'price' => 11.99
+            'date' => '2021-10-01'
         ],
         2 => [
             'post_id' => 2,
             'name' => 'Post 2',
             'url' => 'Post-2',
             'description' => 'Post 2 Description',
-            'price' => 22.99
+            'date' => '2021-10-02'
         ],
         3 => [
             'post_id' => 3,
             'name' => 'Post 3',
             'url' => 'Post-3',
             'description' => 'Post 3 Description',
-            'price' => 33.99
+            'date' => '2021-10-03'
         ],
         4 => [
             'post_id' => 4,
             'name' => 'Post 4',
             'url' => 'Post-4',
             'description' => 'Post 4 Description',
-            'price' => 44.99
+            'date' => '2021-10-04'
         ],
         5 => [
             'post_id' => 5,
             'name' => 'Post 5',
             'url' => 'Post-5',
             'description' => 'Post 5 Description',
-            'price' => 55.99
+            'date' => '2021-10-05'
         ],
         6 => [
             'post_id' => 6,
             'name' => 'Post 6',
             'url' => 'Post-6',
             'description' => 'Post 6 Description',
-            'price' => 67.00
+            'date' => '2021-10-06'
         ]
     ];
 
@@ -117,5 +117,23 @@ function catalogGetPost(): array
         );
 
         return array_pop($data);
+    }
+
+    function blogGetNewPosts(string $url): ?array
+    {
+        $posts = catalogGetPost();
+        usort($posts, "cmp");
+
+
+
+        return array_pop($data);
+    }
+
+    function cmp($a, $b)
+    {
+        if ($a == $b) {
+            return 0;
+        }
+        return ($a < $b) ? -1 : 1;
     }
 }

@@ -1,5 +1,18 @@
+<section title="3 Newest Posts">
+    <h1><?= $data['name'] ?></h1>
+    <div class="product-list">
+        <?php foreach (blogGetNewPosts($data['category_id']) as $post) : ?>
+            <div class="post">
+                <a href="/<?= $post['url'] ?>" title="<?= $post['name'] ?>">
+                    <img src="/post-placeholder.png" alt="<?= $post['name'] ?>" width="200"/>
+                </a>
+                <a href="/<?= $post['url'] ?>" title="<?= $post['name'] ?>"><?= $post['name'] ?></a>
+                <span>$<?= $post['date'] ?></span>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</section>
 
-<!-- @TODO: Implement recently viewed products -->
 <section title="Recently Viewed Products">
     <h2>Recently Viewed Products</h2>
     <div class="product-list">
