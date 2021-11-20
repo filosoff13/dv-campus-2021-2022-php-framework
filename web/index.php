@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 require_once '../src/data.php';
+echo "tes";
 $requestUri = trim($_SERVER['REQUEST_URI'], '/');
 
 switch ($requestUri) {

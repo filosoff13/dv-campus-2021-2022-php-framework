@@ -7,20 +7,20 @@ function catalogGetCategory(): array
     return [
         1 => [
             'category_id' => 1,
-            'name'        => 'Apple',
-            'url'         => 'apple',
+            'name'        => 'Politic',
+            'url'         => 'politic',
             'posts'    => [1, 2, 3]
         ],
         2 => [
             'category_id' => 2,
-            'name'        => 'Samsung',
-            'url'         => 'samsung',
+            'name'        => 'Social',
+            'url'         => 'social',
             'posts'    => [3, 4, 5]
         ],
         3 => [
             'category_id' => 3,
-            'name'        => 'Xiaomi',
-            'url'         => 'xiaomi',
+            'name'        => 'Life',
+            'url'         => 'life',
             'posts'    => [2, 4, 6]
         ]
     ];
@@ -122,15 +122,13 @@ function catalogGetPost(): array
     function blogGetNewPosts(string $url): ?array
     {
         $posts = catalogGetPost();
-        usort($posts, "cmp");
-        return $posts;
-    }
 
-    function cmp($a, $b): int
-    {
-        if ($a["date"] === $b["date"]) {
-            return 0;
-        }
-        return (strtotime($a["date"]) < strtotime($b["date"])) ? -1 : 1;
+        usort($posts, function($postA, $postB) {
+            if ($postA["date"] === $postB["date"]) {
+                return 0;
+            }
+            return (strtotime($postA["date"]) < strtotime($postB["date"])) ? -1 : 1;
+        });
+        return array_slice($posts, 0, 3);
     }
 }
